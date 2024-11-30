@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EMMY HENZ CREDIT CARD</title>
+  <title>AHM7CCGENERATOR</title>
   <style>
     :root {
       --background-color: #1a1a1a;
       --text-color: #ffffff;
-      --button-bg: #f39c12;
-      --button-hover: #e67e22;
+      --button-bg: #3498db;
+      --button-hover: #2980b9;
       --input-bg: #2a2a2a;
-      --border-color: #f39c12;
+      --border-color: #3498db;
       --link-color: #1abc9c;
       --link-hover-color: #16a085;
       --error-color: #e74c3c;
+      --glow-color: #00ffff;
+    }
+
+    .light-theme {
+      --background-color: #f7f7f7;
+      --text-color: #121212;
+      --button-bg: #3498db;
+      --button-hover: #2980b9;
+      --input-bg: #ffffff;
+      --border-color: #3498db;
+      --link-color: #2ecc71;
+      --link-hover-color: #27ae60;
+      --error-color: #c0392b;
+      --glow-color: #00ffff;
     }
 
     body {
@@ -24,154 +38,103 @@
       color: var(--text-color);
       text-align: center;
       padding: 20px;
-      overflow: hidden;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      color: var(--button-bg);
       margin-bottom: 20px;
-    }
-
-    /* Starworks Sparks Background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, transparent, #000), url('https://media.giphy.com/media/l1J9w2UU9WmXGADu4/giphy.gif') no-repeat center center;
-      background-size: cover;
-      z-index: -1;
-      opacity: 0.5;
-    }
-
-    /* Typing Effect for EMMY HENZ CREDIT CARD */
-    #credit-card {
-      font-size: 2.5rem;
-      font-weight: bold;
+      font-size: 2rem;
       color: var(--button-bg);
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid var(--button-bg);
-      animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
-      width: 22ch;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 22ch;
-      }
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      text-align: left;
     }
 
-    .form-group input,
-    .form-group button {
-      margin: 5px;
+    input, button {
+      margin: 10px 0;
       padding: 10px;
       font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid var(--border-color);
     }
 
-    .form-group button {
-      background-color: var(--button-bg);
-      border: none;
-      color: var(--text-color);
+    button {
       cursor: pointer;
-    }
-
-    .form-group button:hover {
-      background-color: var(--button-hover);
-    }
-
-    footer {
-      margin-top: 20px;
-      font-size: 0.9rem;
+      background-color: var(--button-bg);
       color: var(--text-color);
+      transition: box-shadow 0.3s ease;
     }
 
-    footer a {
-      color: var(--link-color);
-      text-decoration: none;
+    button:hover {
+      background-color: var(--button-hover);
+      box-shadow: 0 0 10px var(--glow-color);
     }
 
-    footer a:hover {
-      color: var(--link-hover-color);
-    }
-
-    .instructions {
-      text-align: left;
+    .result {
       margin: 20px auto;
+      width: 90%;
       max-width: 600px;
+      white-space: pre-wrap;
     }
 
-    .instructions ul {
-      padding-left: 20px;
+    footer p, footer a {
+      margin: 10px 0;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 id="credit-card">EMMY HENZ CREDIT CARD</h1>
+    <h1>AHM7CCGENERATOR</h1>
   </header>
 
-  <!-- Original content preserved -->
   <div class="form-group">
     <h3>Generate from BIN</h3>
-    <input type="text" id="binInput" placeholder="Enter BIN (e.g., 411111)" required maxlength="6">
+    <input type="text" id="binInput" placeholder="Enter BIN (e.g., 411111)" maxlength="6">
     <input type="number" id="quantityBinInput" placeholder="Quantity (1-100)" min="1" max="100">
-    <input type="text" id="monthInput" placeholder="MM (01-12)" maxlength="2">
-    <input type="number" id="yearInput" placeholder="YYYY (2025-2040)" maxlength="4">
-    <input type="text" id="cvvInput" placeholder="CVV (3-4 digits)" maxlength="4">
     <button id="generateBinButton">Generate</button>
   </div>
 
   <div class="form-group">
     <h3>Generate Random</h3>
-    <input type="number" id="quantityRandomInput" placeholder="Quantity (1-100)" min="1" max="100">
-    <button id="generateRandomButton">Generate</button>
+    <button id="generateRandomButton">Generate Random</button>
     <button id="clearResultsButton">Clear Results</button>
-    <button id="copyAllButton">Copy All</button>
   </div>
 
-  <div id="errorMessage" class="error"></div>
-  <div class="result" id="result"></div>
+  <div id="result" class="result"></div>
 
   <footer>
-    <p>Check whether the card is live or not.</p>
-    <a href="../external.html?link=https://checker.top/" target="_blank" class="contact-button">Go to Checker</a>
-    <div class="link-buttons-container">
-      <a href="../external.html?link=https://whatsapp.com/channel/0029VaOqbIr2P59sgcIri51d" target="_blank" class="link-button">WhatsApp Channel</a>
-      <a href="../external.html?link=https://t.me/+uDM12rJJFEtmMzBk" target="_blank" class="link-button">Telegram Channel</a>
-    </div>
-    <a href="../external.html?link=https://t.me/TextAHM_bot" target="_blank" class="contact-button">Contact on Telegram</a>
-    <button id="toggleThemeButton">Toggle Theme</button>
-    <p>Made with Love by Muhammad Makki</p>
-    <div class="instructions">
-      <strong>Instructions:</strong>
-      <ul>
-        <li>Enter a valid BIN (at least 6 digits) or select random generation to create credit cards.</li>
-        <li>Specify the desired quantity, expiration month/year, and CVV (optional).</li>
-        <li>Click the "Generate" button to create a list of credit cards.</li>
-        <li>Once generated, copy the cards using the "Copy" buttons or "Copy All".</li>
-        <li>Click on the provided "Checker" link to verify if the cards are live or valid.</li>
-        <li>Paste the generated cards into the checker and follow the site's instructions to get results.</li>
-      </ul>
-    </div>
-    <p><strong>Disclaimer: Generated cards are for educational purposes only.</strong></p>
+    <p>Made with love by Muhammad Makki</p>
   </footer>
+
+  <script>
+    const generateLuhn = (bin, quantity) => {
+      const cards = [];
+      for (let i = 0; i < quantity; i++) {
+        let card = bin;
+        while (card.length < 15) card += Math.floor(Math.random() * 10);
+        const sum = [...card].reverse().map(Number).reduce((acc, val, idx) => acc + (idx % 2 ? val * 2 - (val > 4 ? 9 : 0) : val), 0);
+        card += (10 - sum % 10) % 10;
+        cards.push(card);
+      }
+      return cards;
+    };
+
+    const generateFromBin = () => {
+      const bin = document.getElementById("binInput").value.trim();
+      const quantity = parseInt(document.getElementById("quantityBinInput").value) || 10;
+      if (!bin || bin.length < 6) {
+        alert("Invalid BIN!");
+        return;
+      }
+      const cards = generateLuhn(bin, quantity);
+      document.getElementById("result").innerText = cards.join("\n");
+    };
+
+    document.getElementById("generateBinButton").addEventListener("click", generateFromBin);
+  </script>
 </body>
 </html>
